@@ -1,0 +1,25 @@
+:root { --luxury-gold: #c5a059; }
+
+.hero-section {
+    height: 100vh; width: 100%; position: relative;
+    background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+
+/* Floating Light Glow */
+.glow {
+    position: absolute; width: 600px; height: 600px;
+    background: var(--luxury-gold); filter: blur(150px);
+    opacity: 0.15; border-radius: 50%; animation: pulse 8s infinite;
+}
+
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+/* Typography */
+.hero-title {
+    font-size: 12vw; font-weight: 800; text-transform: uppercase;
+    letter-spacing: -5px; z-index: 2; pointer-events: none;
+    background: linear-gradient(to bottom, #fff, #666);
+    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
