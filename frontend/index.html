@@ -3,93 +3,662 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Steps | Elevated Motion</title>
+    <meta name="description" content="Luxe Steps - Premium Footwear for Men & Women">
+    <title>Luxe Steps | Premium Footwear Collection</title>
     
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;800&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="logo">LUXE STEPS</div>
-        <div class="links">
-            <a href="#hero">Home</a>
-            <a href="#shop">Shop</a>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">LUXE STEPS</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Crafting Excellence</p>
         </div>
-        <div class="nav-icons">
-            <i class="fas fa-shopping-cart"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <span class="logo-text">LUXE</span>
+                    <span class="logo-accent">STEPS</span>
+                </a>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="shop.html" class="nav-link">Shop <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-column">
+                                    <h3>Men's Collection</h3>
+                                    <ul>
+                                        <li><a href="shop.html?category=sneakers&gender=men">Sneakers</a></li>
+                                        <li><a href="shop.html?category=running&gender=men">Running Shoes</a></li>
+                                        <li><a href="shop.html?category=casual&gender=men">Casual</a></li>
+                                        <li><a href="shop.html?category=formal&gender=men">Formal</a></li>
+                                        <li><a href="shop.html?category=boots&gender=men">Boots</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Women's Collection</h3>
+                                    <ul>
+                                        <li><a href="shop.html?category=sneakers&gender=women">Sneakers</a></li>
+                                        <li><a href="shop.html?category=running&gender=women">Running Shoes</a></li>
+                                        <li><a href="shop.html?category=heels&gender=women">Heels</a></li>
+                                        <li><a href="shop.html?category=flats&gender=women">Flats</a></li>
+                                        <li><a href="shop.html?category=boots&gender=women">Boots</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Special Collections</h3>
+                                    <ul>
+                                        <li><a href="shop.html?featured=true">Featured</a></li>
+                                        <li><a href="shop.html?newArrival=true">New Arrivals</a></li>
+                                        <li><a href="shop.html?bestSeller=true">Best Sellers</a></li>
+                                        <li><a href="shop.html?limitedEdition=true">Limited Edition</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Featured">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="shop.html?gender=men" class="nav-link">Men</a></li>
+                    <li class="nav-item"><a href="shop.html?gender=women" class="nav-link">Women</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <div class="search-icon" id="searchToggle">
+                    <i class="fas fa-search"></i>
+                </div>
+                <a href="wishlist.html" class="nav-icon">
+                    <i class="far fa-heart"></i>
+                    <span class="icon-badge" id="wishlistCount">0</span>
+                </a>
+                <div class="cart-icon" id="cartToggle">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="icon-badge" id="cartCount">0</span>
+                </div>
+                <div class="user-icon" id="userToggle">
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for shoes, brands, categories...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+
+        <!-- User Dropdown -->
+        <div class="user-dropdown" id="userDropdown">
+            <div class="user-menu" id="userMenuContent">
+                <!-- Content filled by JS -->
+            </div>
         </div>
     </nav>
 
+    <!-- Mini Cart Sidebar -->
+    <div class="mini-cart" id="miniCart">
+        <div class="mini-cart-overlay"></div>
+        <div class="mini-cart-content">
+            <div class="mini-cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="mini-cart-close" id="miniCartClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mini-cart-body" id="miniCartBody">
+                <!-- Cart items filled by JS -->
+            </div>
+            <div class="mini-cart-footer">
+                <div class="mini-cart-total">
+                    <span>Subtotal:</span>
+                    <span id="miniCartTotal">$0.00</span>
+                </div>
+                <a href="cart.html" class="btn btn-outline">View Cart</a>
+                <a href="checkout.html" class="btn btn-primary">Checkout</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-        <div class="glow"></div>
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles" id="heroParticles"></div>
+        </div>
+        
         <div class="hero-content">
-            <h1 class="hero-title" id="title">ELEVATED<br>MOTION</h1>
-            <p class="hero-subtitle" id="subtitle">Premium footwear for the modern era.</p>
-            <button class="btn-luxury" onclick="location.href='#shop'">Discover Collection</button>
-        </div>
-        <img src="shoe.png" id="shoe" alt="Premium Sneaker" class="floating-shoe">
-    </section>
-
-    <!-- MongoDB Product List Section -->
-    <section class="products-section" id="shop">
-        <h2 class="section-title text-center">New Arrivals</h2>
-        <!-- This is where the JS will inject your MongoDB items -->
-        <div class="product-grid" id="product-list">
-            <!-- Loading state -->
-            <p style="text-align:center; width:100%; color:#666;">Loading premium collection...</p>
-        </div>
-    </section>
-
-    <!-- Dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="js/api.js"></script>
-    
-    <script>
-        // Injecting the API Data
-        async function loadProducts() {
-            const container = document.getElementById('product-list');
-            const res = await api.fetch('/products');
-            
-            if (res.data && res.data.length > 0) {
-                container.innerHTML = res.data.map(p => `
-                    <div class="card">
-                        <img src="${p.image || 'shoe.png'}" alt="${p.name}">
-                        <h3>${p.name}</h3>
-                        <p>$${p.price.toFixed(2)}</p>
-                        <button class="btn-luxury-small add-to-cart" 
-                                data-id="${p._id}" 
-                                data-name="${p.name}" 
-                                data-price="${p.price}">
-                                Add to Cart
-                        </button>
+            <div class="hero-text" data-aos="fade-up">
+                <span class="hero-tag">Premium Collection 2024</span>
+                <h1 class="hero-title">
+                    <span class="title-line">STEP INTO</span>
+                    <span class="title-line gradient-text">LUXURY</span>
+                </h1>
+                <p class="hero-subtitle">Experience the perfect blend of comfort and style with our exclusive footwear collection</p>
+                <div class="hero-buttons">
+                    <a href="shop.html" class="btn btn-primary magnetic-btn">
+                        <span>Explore Collection</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="shop.html?newArrival=true" class="btn btn-outline magnetic-btn">
+                        <span>New Arrivals</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="500">0</h3>
+                        <p>Premium Styles</p>
                     </div>
-                `).join('');
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="50000">0</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="100">0</h3>
+                        <p>Countries</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual" data-aos="fade-left">
+                <div class="floating-shoe">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800" alt="Premium Shoe" class="shoe-image">
+                    <div class="shoe-glow"></div>
+                </div>
+                <div class="floating-badge badge-1">
+                    <span>Limited Edition</span>
+                </div>
+                <div class="floating-badge badge-2">
+                    <span>30% OFF</span>
+                </div>
+            </div>
+        </div>
 
-                // Add Cart Click Listeners
-                document.querySelectorAll('.add-to-cart').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const product = e.target.dataset;
-                        console.log("Added to cart:", product);
-                        alert(product.name + " added to your collection.");
-                    });
-                });
-            } else {
-                container.innerHTML = "<p style='text-align:center;'>No products found.</p>";
-            }
-        }
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll to explore</p>
+        </div>
+    </section>
 
-        // Initialize
-        loadProducts();
+    <!-- Category Showcase -->
+    <section class="category-showcase section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Collections</span>
+                <h2 class="section-title">Shop by Category</h2>
+            </div>
 
-        // Basic Hero Animation
-        gsap.from("#title", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
-    </script>
+            <div class="category-grid">
+                <div class="category-card large" data-aos="fade-up">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800" alt="Men's Collection">
+                        <div class="category-overlay">
+                            <h3>Men's Collection</h3>
+                            <p>Discover Premium Styles</p>
+                            <a href="shop.html?gender=men" class="btn btn-light">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600" alt="Women's Collection">
+                        <div class="category-overlay">
+                            <h3>Women's Collection</h3>
+                            <p>Elegance Redefined</p>
+                            <a href="shop.html?gender=women" class="btn btn-light">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600" alt="Sneakers">
+                        <div class="category-overlay">
+                            <h3>Sneakers</h3>
+                            <p>Street Style Icons</p>
+                            <a href="shop.html?category=sneakers" class="btn btn-light">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600" alt="Running">
+                        <div class="category-overlay">
+                            <h3>Running</h3>
+                            <p>Performance First</p>
+                            <a href="shop.html?category=running" class="btn btn-light">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Trending Now</span>
+                <h2 class="section-title">Featured Collection</h2>
+                <div class="section-nav">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="men">Men</button>
+                    <button class="filter-btn" data-filter="women">Women</button>
+                    <button class="filter-btn" data-filter="sneakers">Sneakers</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products loaded by JavaScript -->
+                <div class="product-loader">
+                    <div class="spinner"></div>
+                    <p>Loading amazing products...</p>
+                </div>
+            </div>
+
+            <div class="section-footer" data-aos="fade-up">
+                <a href="shop.html" class="btn btn-primary magnetic-btn">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limited Edition Banner -->
+    <section class="limited-edition-banner">
+        <div class="limited-content">
+            <div class="limited-image" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=800" alt="Limited Edition">
+                <div class="limited-badge">Limited</div>
+            </div>
+            <div class="limited-text" data-aos="fade-left">
+                <span class="limited-tag">Exclusive Launch</span>
+                <h2>Limited Edition Drop</h2>
+                <p>Only 100 pairs available worldwide. Don't miss your chance to own a piece of luxury crafted with premium materials and innovative design.</p>
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+                <a href="shop.html?limitedEdition=true" class="btn btn-primary magnetic-btn">Shop Limited Edition</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="new-arrivals section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Just In</span>
+                <h2 class="section-title">New Arrivals</h2>
+            </div>
+
+            <div class="swiper newArrivalsSwiper" data-aos="fade-up">
+                <div class="swiper-wrapper" id="newArrivalsSlider">
+                    <!-- Products loaded by JavaScript -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="video-showcase">
+        <div class="video-container">
+            <video autoplay loop muted playsinline class="video-bg">
+                <source src="https://cdn.coverr.co/videos/coverr-sneaker-closeup-5459/1080p.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="video-content" data-aos="zoom-in">
+                <h2>Crafted for Excellence</h2>
+                <p>Every pair tells a story of precision, passion, and perfection</p>
+                <a href="about.html" class="btn btn-light magnetic-btn">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="best-sellers section-padding bg-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Customer Favorites</span>
+                <h2 class="section-title">Best Sellers</h2>
+            </div>
+
+            <div class="products-grid" id="bestSellers">
+                <!-- Products loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story -->
+    <section class="brand-story section-padding">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right">
+                    <span class="section-tag">Our Legacy</span>
+                    <h2>Where Craftsmanship Meets Innovation</h2>
+                    <p>Since our inception, Luxe Steps has been synonymous with premium quality and timeless design. We believe that great shoes don't just complete an outfit—they elevate it.</p>
+                    <p>Each pair in our collection is meticulously crafted using the finest materials, combining traditional craftsmanship with cutting-edge technology to create footwear that's as comfortable as it is beautiful.</p>
+                    <ul class="story-features">
+                        <li><i class="fas fa-check"></i> Premium Materials</li>
+                        <li><i class="fas fa-check"></i> Expert Craftsmanship</li>
+                        <li><i class="fas fa-check"></i> Sustainable Practices</li>
+                        <li><i class="fas fa-check"></i> Global Shipping</li>
+                    </ul>
+                    <a href="about.html" class="btn btn-primary magnetic-btn">Learn More</a>
+                </div>
+                <div class="story-images" data-aos="fade-left">
+                    <div class="story-image main">
+                        <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600" alt="Craftsmanship">
+                    </div>
+                    <div class="story-image secondary">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Design">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section section-padding bg-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag light">What They Say</span>
+                <h2 class="section-title light">Customer Reviews</h2>
+            </div>
+
+            <div class="swiper testimonialsSwiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Best shoes I've ever owned! The quality is exceptional and they're incredibly comfortable. Worth every penny."</p>
+                            <div class="testimonial-author">
+                                <img src="https://i.pravatar.cc/100?img=1" alt="Customer">
+                                <div>
+                                    <h4>Michael Chen</h4>
+                                    <span>Verified Buyer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Luxe Steps has become my go-to brand. The attention to detail and premium materials make all the difference."</p>
+                            <div class="testimonial-author">
+                                <img src="https://i.pravatar.cc/100?img=5" alt="Customer">
+                                <div>
+                                    <h4>Sarah Johnson</h4>
+                                    <span>Verified Buyer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Amazing customer service and fast shipping! The shoes exceeded my expectations in terms of quality and style."</p>
+                            <div class="testimonial-author">
+                                <img src="https://i.pravatar.cc/100?img=8" alt="Customer">
+                                <div>
+                                    <h4>David Martinez</h4>
+                                    <span>Verified Buyer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section section-padding">
+        <div class="container">
+            <div class="newsletter-content" data-aos="zoom-in">
+                <div class="newsletter-text">
+                    <h2>Join the Luxe Community</h2>
+                    <p>Subscribe to receive exclusive offers, early access to new collections, and style inspiration.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary magnetic-btn">Subscribe</button>
+                </form>
+                <div class="newsletter-perks">
+                    <div class="perk">
+                        <i class="fas fa-gift"></i>
+                        <span>10% Off First Order</span>
+                    </div>
+                    <div class="perk">
+                        <i class="fas fa-truck"></i>
+                        <span>Free Shipping</span>
+                    </div>
+                    <div class="perk">
+                        <i class="fas fa-star"></i>
+                        <span>VIP Access</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="instagram-section">
+        <div class="section-header">
+            <h2>@luxesteps</h2>
+            <p>Follow us for daily style inspiration</p>
+        </div>
+        <div class="instagram-grid">
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+            <a href="#" class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1562183241-b937e95585b6?w=400" alt="Instagram">
+                <div class="instagram-overlay">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-logo">LUXE STEPS</h3>
+                        <p>Premium footwear for those who appreciate quality, style, and comfort.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Shop</h4>
+                        <ul>
+                            <li><a href="shop.html?gender=men">Men's Shoes</a></li>
+                            <li><a href="shop.html?gender=women">Women's Shoes</a></li>
+                            <li><a href="shop.html?newArrival=true">New Arrivals</a></li>
+                            <li><a href="shop.html?bestSeller=true">Best Sellers</a></li>
+                            <li><a href="shop.html?limitedEdition=true">Limited Edition</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Customer Service</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#">Shipping & Returns</a></li>
+                            <li><a href="#">Size Guide</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Track Order</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Store Locator</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                            <li><i class="fas fa-envelope"></i> info@luxesteps.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Fashion Ave, NY 10001</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Luxe Steps. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>
